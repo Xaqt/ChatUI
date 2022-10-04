@@ -10,6 +10,7 @@ export var Navbar = function Navbar(props) {
       leftContent = props.leftContent,
       _props$rightContent = props.rightContent,
       rightContent = _props$rightContent === void 0 ? [] : _props$rightContent;
+  console.log('Navbar subtitle', subtitle);
   return /*#__PURE__*/React.createElement("header", {
     className: clsx('Navbar', className)
   }, /*#__PURE__*/React.createElement("div", {
