@@ -27,8 +27,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "prepare": "husky install",
-    "postinstall": "npm run build"
+    "prepare": "husky install"
   },
   "dependencies": {
     "@babel/runtime": "^7.18.3",
