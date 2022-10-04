@@ -13,6 +13,7 @@ export type NavbarProps = {
 
 export const Navbar: React.FC<NavbarProps> = (props) => {
   const { className, title, subtitle, logo, leftContent, rightContent = [] } = props;
+  console.log('Navbar subtitle', subtitle);
   return (
     <header className={clsx('Navbar', className)}>
       <div className="Navbar-left">{leftContent && <IconButton size="lg" {...leftContent} />}</div>
