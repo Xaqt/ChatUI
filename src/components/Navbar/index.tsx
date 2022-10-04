@@ -19,7 +19,7 @@ export const Navbar: React.FC<NavbarProps> = (props) => {
       <div className="Navbar-main">
         {logo && <img className="Navbar-logo" src={logo} alt={title} />}
         <h2 className="Navbar-title">{title}</h2>
-        <p className="Navbar-subtitle">Hello world {subtitle}</p>
+        <p className="Navbar-subtitle">{subtitle}</p>
       </div>
       <div className="Navbar-right">
         {rightContent.map((item) => (
