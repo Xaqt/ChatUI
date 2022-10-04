@@ -5,6 +5,7 @@ import { IconButton } from '../IconButton';
 export var Navbar = function Navbar(props) {
   var className = props.className,
       title = props.title,
+      subtitle = props.subtitle,
       logo = props.logo,
       leftContent = props.leftContent,
       _props$rightContent = props.rightContent,
@@ -17,13 +18,15 @@ export var Navbar = function Navbar(props) {
     size: "lg"
   }, leftContent))), /*#__PURE__*/React.createElement("div", {
     className: "Navbar-main"
-  }, logo ? /*#__PURE__*/React.createElement("img", {
+  }, logo && /*#__PURE__*/React.createElement("img", {
     className: "Navbar-logo",
     src: logo,
     alt: title
-  }) : /*#__PURE__*/React.createElement("h2", {
+  }), /*#__PURE__*/React.createElement("h2", {
     className: "Navbar-title"
-  }, title)), /*#__PURE__*/React.createElement("div", {
+  }, title), subtitle && /*#__PURE__*/React.createElement("p", {
+    className: "Navbar-subtitle"
+  }, subtitle)), /*#__PURE__*/React.createElement("div", {
     className: "Navbar-right"
   }, rightContent.map(function (item) {
     return /*#__PURE__*/React.createElement(IconButton, _extends({
