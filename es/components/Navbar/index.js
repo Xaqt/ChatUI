@@ -26,7 +26,7 @@ export var Navbar = function Navbar(props) {
     className: "Navbar-title"
   }, title), /*#__PURE__*/React.createElement("p", {
     className: "Navbar-subtitle"
-  }, "Hello world ", subtitle)), /*#__PURE__*/React.createElement("div", {
+  }, subtitle)), /*#__PURE__*/React.createElement("div", {
     className: "Navbar-right"
   }, rightContent.map(function (item) {
     return /*#__PURE__*/React.createElement(IconButton, _extends({
