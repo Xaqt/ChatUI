@@ -10,7 +10,6 @@ export var Navbar = function Navbar(props) {
       leftContent = props.leftContent,
       _props$rightContent = props.rightContent,
       rightContent = _props$rightContent === void 0 ? [] : _props$rightContent;
-  console.log('Navbar subtitle', subtitle);
   return /*#__PURE__*/React.createElement("header", {
     className: clsx('Navbar', className)
   }, /*#__PURE__*/React.createElement("div", {
@@ -25,9 +24,9 @@ export var Navbar = function Navbar(props) {
     alt: title
   }), /*#__PURE__*/React.createElement("h2", {
     className: "Navbar-title"
-  }, title), subtitle && /*#__PURE__*/React.createElement("p", {
+  }, title), /*#__PURE__*/React.createElement("p", {
     className: "Navbar-subtitle"
-  }, subtitle)), /*#__PURE__*/React.createElement("div", {
+  }, "Hello world ", subtitle)), /*#__PURE__*/React.createElement("div", {
     className: "Navbar-right"
   }, rightContent.map(function (item) {
     return /*#__PURE__*/React.createElement(IconButton, _extends({

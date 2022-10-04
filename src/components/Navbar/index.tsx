@@ -13,14 +13,13 @@ export type NavbarProps = {
 
 export const Navbar: React.FC<NavbarProps> = (props) => {
   const { className, title, subtitle, logo, leftContent, rightContent = [] } = props;
-  console.log('Navbar subtitle', subtitle);
   return (
     <header className={clsx('Navbar', className)}>
       <div className="Navbar-left">{leftContent && <IconButton size="lg" {...leftContent} />}</div>
       <div className="Navbar-main">
         {logo && <img className="Navbar-logo" src={logo} alt={title} />}
         <h2 className="Navbar-title">{title}</h2>
-        {subtitle && <p className="Navbar-subtitle">{subtitle}</p>}
+        <p className="Navbar-subtitle">Hello world {subtitle}</p>
       </div>
       <div className="Navbar-right">
         {rightContent.map((item) => (
