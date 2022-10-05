@@ -23,7 +23,7 @@
     "build": "npm run js:cjs && npm run js:esm && npm run build:types",
     "build:css": "lessc src/styles/index.less dist/index.css && npm run prefix && npm run copy:less",
     "build:umd": "BABEL_ENV=umd rollup -c && npm run build:css",
-    "prepublishOnly": "npm run build && npm run build:umd",
+    "prepublishOnly": "npm run build && npm run build:umd && npm run build:css",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
@@ -35,7 +35,8 @@
     "clsx": "^1.1.1",
     "core-js": "^3.23.1",
     "dompurify": "^2.3.8",
-    "intersection-observer": "^0.12.2"
+    "intersection-observer": "^0.12.2",
+    "less": "^4.1.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
