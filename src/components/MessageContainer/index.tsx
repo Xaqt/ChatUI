@@ -185,11 +185,26 @@ export const MessageContainer = React.forwardRef<MessageContainerHandle, Message
           loadMoreText={loadMoreText}
           ref={scrollerRef}
         >
-          <div className="MessageList">
-            {messages.map((msg) => (
-              <Message {...msg} renderMessageContent={renderMessageContent} key={msg._id} />
-            ))}
-          </div>
+          <>
+            <div className="MessageList" style={{ position: 'relative' }}>
+              {messages.map((msg) => (
+                <Message {...msg} renderMessageContent={renderMessageContent} key={msg._id} />
+              ))}
+            </div>
+            <a
+              href="#"
+              style={{
+                position: 'absolute',
+                bottom: 0,
+                margin: 0,
+                left: '50%',
+                translate: '-50%',
+                textDecoration: 'none',
+              }}
+            >
+              Give feedback
+            </a>
+          </>
         </PullToRefresh>
         {showBackBottom && (
           <BackBottom

@@ -33,7 +33,8 @@ export var Navbar = function Navbar(props) {
   }), /*#__PURE__*/React.createElement("h2", {
     className: "Navbar-title",
     style: {
-      color: textColor
+      color: textColor,
+      fontWeight: 'bold'
     }
   }, title), /*#__PURE__*/React.createElement("p", {
     className: "Navbar-subtitle",

@@ -38,7 +38,7 @@ export const Navbar: React.FC<NavbarProps> = (props) => {
         </div>
         <div className="Navbar-main">
           {logo && <img className="Navbar-logo" src={logo} alt={title} />}
-          <h2 className="Navbar-title" style={{ color: textColor }}>
+          <h2 className="Navbar-title" style={{ color: textColor, fontWeight: 'bold' }}>
             {title}
           </h2>
           <p className="Navbar-subtitle" style={{ color: textColor }}>
