@@ -2,14 +2,15 @@
   position: relative;
   z-index: @zindex-navbar;
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   padding: @navbar-padding;
   padding-top: var(--safe-top);
   border-bottom: 1px solid @navbar-border-color;
   background: @navbar-bg;
+  border-radius: 15px 15px 0 0;
 
   &-main {
-    padding-top: 10px;
+    padding: 10px;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -18,6 +19,11 @@
     justify-content: center;
     min-height: @navbar-height;
   }
+
+  &-left {
+    padding-top: 10px;
+  }
+
   &-left,
   &-right {
     width: 58px;
@@ -30,7 +36,7 @@
     margin: 0;
     color: @navbar-color;
     font-size: @navbar-font-size;
-    font-weight: 500;
+    font-weight: bold;
     text-align: center;
   }
   &-subtitle {
@@ -40,6 +46,19 @@
     font-weight: 300;
     text-align: center;
   }
+
+  &-placeholder {
+    width: 100%;
+    border-bottom: 1px solid @navbar-border-color;
+    font-weight: 300;
+    p {
+      margin: 5px;
+      color: @navbar-color;
+      font-size: @navbar-font-size;
+      text-align: center;
+    }
+  }
+
   &-logo {
     width: auto;
     height: @navbar-logo-height;

@@ -18,6 +18,7 @@ export interface MessageContainerProps {
   renderBeforeMessageList?: () => React.ReactNode;
   onBackBottomShow?: () => void;
   onBackBottomClick?: () => void;
+  style?: React.CSSProperties;
 }
 
 export interface MessageContainerHandle {
@@ -41,6 +42,7 @@ export const MessageContainer = React.forwardRef<MessageContainerHandle, Message
       renderMessageContent,
       onBackBottomShow,
       onBackBottomClick,
+      style,
     } = props;
 
     const [showBackBottom, setShowBackBottom] = useState(false);
@@ -175,7 +177,7 @@ export const MessageContainer = React.forwardRef<MessageContainerHandle, Message
     useImperativeHandle(ref, () => ({ ref: messagesRef, scrollToEnd }), [scrollToEnd]);
 
     return (
-      <div className="MessageContainer" ref={messagesRef} tabIndex={-1}>
+      <div className="MessageContainer" ref={messagesRef} tabIndex={-1} style={style}>
         {renderBeforeMessageList && renderBeforeMessageList()}
         <PullToRefresh
           onRefresh={onRefresh}

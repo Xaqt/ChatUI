@@ -19,6 +19,7 @@ export var Chat = /*#__PURE__*/React.forwardRef(function (props, ref) {
       onScroll = props.onScroll,
       _props$messages = props.messages,
       messages = _props$messages === void 0 ? [] : _props$messages,
+      messageContainerStyle = props.messageContainerStyle,
       renderMessageContent = props.renderMessageContent,
       onBackBottomShow = props.onBackBottomShow,
       onBackBottomClick = props.onBackBottomClick,
@@ -81,7 +82,8 @@ export var Chat = /*#__PURE__*/React.forwardRef(function (props, ref) {
     onRefresh: onRefresh,
     onScroll: onScroll,
     onBackBottomShow: onBackBottomShow,
-    onBackBottomClick: onBackBottomClick
+    onBackBottomClick: onBackBottomClick,
+    style: messageContainerStyle
   }), /*#__PURE__*/React.createElement("div", {
     className: "ChatFooter"
   }, renderQuickReplies ? renderQuickReplies() : /*#__PURE__*/React.createElement(QuickReplies, {

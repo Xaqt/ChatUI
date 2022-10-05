@@ -26,7 +26,8 @@ export var MessageContainer = /*#__PURE__*/React.forwardRef(function (props, ref
       renderBeforeMessageList = props.renderBeforeMessageList,
       renderMessageContent = props.renderMessageContent,
       onBackBottomShow = props.onBackBottomShow,
-      onBackBottomClick = props.onBackBottomClick;
+      onBackBottomClick = props.onBackBottomClick,
+      style = props.style;
 
   var _useState = useState(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -178,7 +179,8 @@ export var MessageContainer = /*#__PURE__*/React.forwardRef(function (props, ref
   return /*#__PURE__*/React.createElement("div", {
     className: "MessageContainer",
     ref: messagesRef,
-    tabIndex: -1
+    tabIndex: -1,
+    style: style
   }, renderBeforeMessageList && renderBeforeMessageList(), /*#__PURE__*/React.createElement(PullToRefresh, {
     onRefresh: onRefresh,
     onScroll: handleScroll,

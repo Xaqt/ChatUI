@@ -23,6 +23,7 @@ export declare type ChatProps = Omit<ComposerProps, 'onFocus' | 'onChange' | 'on
      * 导航栏渲染函数
      */
     renderNavbar?: () => React.ReactNode;
+    messageContainerStyle?: React.CSSProperties;
     /**
      * 加载更多文案
      */
@@ -136,6 +137,7 @@ export declare const Chat: React.ForwardRefExoticComponent<Omit<ComposerProps, "
      * 导航栏渲染函数
      */
     renderNavbar?: (() => React.ReactNode) | undefined;
+    messageContainerStyle?: React.CSSProperties | undefined;
     /**
      * 加载更多文案
      */

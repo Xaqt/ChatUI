@@ -32,6 +32,8 @@ export type ChatProps = Omit<ComposerProps, 'onFocus' | 'onChange' | 'onBlur'> &
      * 导航栏渲染函数
      */
     renderNavbar?: () => React.ReactNode;
+
+    messageContainerStyle?: React.CSSProperties;
     /**
      * 加载更多文案
      */
@@ -155,6 +157,7 @@ export const Chat = React.forwardRef<HTMLDivElement, ChatProps>((props, ref) => 
     onRefresh,
     onScroll,
     messages = [],
+    messageContainerStyle,
     renderMessageContent,
     onBackBottomShow,
     onBackBottomClick,
@@ -211,6 +214,7 @@ export const Chat = React.forwardRef<HTMLDivElement, ChatProps>((props, ref) => 
           onScroll={onScroll}
           onBackBottomShow={onBackBottomShow}
           onBackBottomClick={onBackBottomClick}
+          style={messageContainerStyle}
         />
         <div className="ChatFooter">
           {renderQuickReplies ? (

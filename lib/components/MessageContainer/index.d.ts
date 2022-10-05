@@ -10,6 +10,7 @@ export interface MessageContainerProps {
     renderBeforeMessageList?: () => React.ReactNode;
     onBackBottomShow?: () => void;
     onBackBottomClick?: () => void;
+    style?: React.CSSProperties;
 }
 export interface MessageContainerHandle {
     ref: React.RefObject<HTMLDivElement>;
