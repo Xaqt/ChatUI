@@ -1,6 +1,6 @@
 import _extends from "@babel/runtime/helpers/esm/extends";
 import _objectWithoutProperties from "@babel/runtime/helpers/esm/objectWithoutProperties";
-var _excluded = ["className", "label", "color", "variant", "size", "icon", "loading", "block", "disabled", "children", "onClick"];
+var _excluded = ["className", "label", "backgroundColor", "color", "variant", "size", "icon", "loading", "block", "disabled", "children", "onClick"];
 import React from 'react';
 import clsx from 'clsx';
 import { Icon } from '../Icon';
@@ -12,6 +12,7 @@ function composeClass(type) {
 export var Button = function Button(props) {
   var className = props.className,
       label = props.label,
+      backgroundColor = props.backgroundColor,
       color = props.color,
       variant = props.variant,
       oSize = props.size,
@@ -41,7 +42,8 @@ export var Button = function Button(props) {
     onClick: handleClick
   }, other, {
     style: {
-      backgroundColor: color
+      backgroundColor: backgroundColor,
+      color: color
     }
   }), icon && /*#__PURE__*/React.createElement("span", {
     className: "Btn-icon"

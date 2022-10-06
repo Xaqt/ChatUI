@@ -5,7 +5,8 @@ import { Icon } from '../Icon';
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   label?: string;
-  color?: 'primary';
+  color?: string;
+  backgroundColor?: string;
   variant?: 'text' | 'outline';
   size?: 'sm' | 'md' | 'lg';
   block?: boolean;
@@ -23,6 +24,7 @@ export const Button = (props: ButtonProps) => {
   const {
     className,
     label,
+    backgroundColor,
     color,
     variant,
     size: oSize,
@@ -60,7 +62,7 @@ export const Button = (props: ButtonProps) => {
       disabled={disabled}
       onClick={handleClick}
       {...other}
-      style={{ backgroundColor: color }}
+      style={{ backgroundColor: backgroundColor, color: color }}
     >
       {icon && (
         <span className="Btn-icon">
