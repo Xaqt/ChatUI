@@ -39,7 +39,11 @@ export var Button = function Button(props) {
     type: "button",
     disabled: disabled,
     onClick: handleClick
-  }, other), icon && /*#__PURE__*/React.createElement("span", {
+  }, other, {
+    style: {
+      backgroundColor: color
+    }
+  }), icon && /*#__PURE__*/React.createElement("span", {
     className: "Btn-icon"
   }, /*#__PURE__*/React.createElement(Icon, {
     type: icon,

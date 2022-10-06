@@ -60,6 +60,7 @@ export const Button = (props: ButtonProps) => {
       disabled={disabled}
       onClick={handleClick}
       {...other}
+      style={{ backgroundColor: color }}
     >
       {icon && (
         <span className="Btn-icon">
