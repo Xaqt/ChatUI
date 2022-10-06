@@ -18,7 +18,10 @@ export var QuickReply = function QuickReply(props) {
     type: "button",
     "data-code": item.code,
     "aria-label": "\u5FEB\u6377\u77ED\u8BED: ".concat(item.name, "\uFF0C\u53CC\u51FB\u53D1\u9001"),
-    onClick: handleClick
+    onClick: handleClick,
+    style: {
+      backgroundColor: 'white'
+    }
   }, /*#__PURE__*/React.createElement("div", {
     className: "QuickReply-inner"
   }, item.icon && /*#__PURE__*/React.createElement(Icon, {

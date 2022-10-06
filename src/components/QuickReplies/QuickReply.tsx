@@ -34,6 +34,7 @@ export const QuickReply = (props: QuickReplyProps) => {
       data-code={item.code}
       aria-label={`快捷短语: ${item.name}，双击发送`}
       onClick={handleClick}
+      style={{ backgroundColor: 'white' }}
     >
       <div className="QuickReply-inner">
         {item.icon && <Icon type={item.icon} />}
