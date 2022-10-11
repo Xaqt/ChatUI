@@ -2,12 +2,12 @@ import React from 'react';
 import clsx from 'clsx';
 import { SystemMessage } from './SystemMessage';
 import { IMessageStatus } from '../MessageStatus';
-import { Avatar } from '../Avatar';
+import { Avatar, AvatarShape } from '../Avatar';
 import { Time } from '../Time';
 import { Typing } from '../Typing';
 
 export interface User {
-  avatar?: string;
+  avatar?: { src: string; shape: AvatarShape };
   name?: string;
   url?: string;
   [k: string]: any;
@@ -73,7 +73,9 @@ const Message = (props: MessageProps) => {
         </div>
       )}
       <div className="Message-main">
-        {isRL && avatar && <Avatar src={avatar} alt={name} url={user.url} />}
+        {isRL && avatar && (
+          <Avatar src={avatar.src} shape={avatar.shape} alt={name} url={user.url} />
+        )}
         <div className="Message-inner">
           {isRL && name && <div className="Message-author">{name}</div>}
           <div className="Message-content" role="alert" aria-live="assertive" aria-atomic="false">

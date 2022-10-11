@@ -1,7 +1,11 @@
 import React from 'react';
 import { IMessageStatus } from '../MessageStatus';
+import { AvatarShape } from '../Avatar';
 export interface User {
-    avatar?: string;
+    avatar?: {
+        src: string;
+        shape: AvatarShape;
+    };
     name?: string;
     url?: string;
     [k: string]: any;

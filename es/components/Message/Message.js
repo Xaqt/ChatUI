@@ -46,7 +46,8 @@ var Message = function Message(props) {
   })), /*#__PURE__*/React.createElement("div", {
     className: "Message-main"
   }, isRL && avatar && /*#__PURE__*/React.createElement(Avatar, {
-    src: avatar,
+    src: avatar.src,
+    shape: avatar.shape,
     alt: name,
     url: user.url
   }), /*#__PURE__*/React.createElement("div", {
