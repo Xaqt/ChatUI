@@ -21,7 +21,8 @@ export var QuickReply = function QuickReply(props) {
     onClick: handleClick,
     style: {
       backgroundColor: 'white'
-    }
+    },
+    disabled: item.isDisabled
   }, /*#__PURE__*/React.createElement("div", {
     className: "QuickReply-inner"
   }, item.icon && /*#__PURE__*/React.createElement(Icon, {

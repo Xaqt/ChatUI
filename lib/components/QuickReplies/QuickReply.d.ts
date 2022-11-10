@@ -6,6 +6,7 @@ export interface QuickReplyItemProps {
     img?: string;
     isNew?: boolean;
     isHighlight?: boolean;
+    isDisabled?: boolean;
 }
 export interface QuickReplyProps {
     item: QuickReplyItemProps;

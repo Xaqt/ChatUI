@@ -9,6 +9,7 @@ export interface QuickReplyItemProps {
   img?: string;
   isNew?: boolean;
   isHighlight?: boolean;
+  isDisabled?: boolean;
 }
 
 export interface QuickReplyProps {
@@ -35,6 +36,7 @@ export const QuickReply = (props: QuickReplyProps) => {
       aria-label={`快捷短语: ${item.name}，双击发送`}
       onClick={handleClick}
       style={{ backgroundColor: 'white' }}
+      disabled={item.isDisabled}
     >
       <div className="QuickReply-inner">
         {item.icon && <Icon type={item.icon} />}
