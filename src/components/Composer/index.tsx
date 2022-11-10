@@ -227,6 +227,7 @@ export const Composer = React.forwardRef<ComposerHandle, ComposerProps>((props, 
   const isInputText = inputType === 'text';
   const inputTypeIcon = isInputText ? 'volume-circle' : 'keyboard-circle';
   const hasToolbar = toolbar.length > 0;
+  const disabled = isDisabled;
 
   const inputProps = {
     ...inputOptions,
@@ -282,7 +283,7 @@ export const Composer = React.forwardRef<ComposerHandle, ComposerProps>((props, 
           {!isInputText && <Recorder {...recorder} />}
         </div>
         {!text && rightAction && <Action {...rightAction} />}
-        {hasToolbar && (
+        {hasToolbar && !disabled && (
           <Action
             className={clsx('Composer-toggleBtn', {
               active: isAccessoryOpen,

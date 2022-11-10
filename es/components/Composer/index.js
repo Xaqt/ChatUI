@@ -197,6 +197,7 @@ export var Composer = /*#__PURE__*/React.forwardRef(function (props, ref) {
   var isInputText = inputType === 'text';
   var inputTypeIcon = isInputText ? 'volume-circle' : 'keyboard-circle';
   var hasToolbar = toolbar.length > 0;
+  var disabled = isDisabled;
 
   var inputProps = _objectSpread(_objectSpread({}, inputOptions), {}, {
     value: text,
@@ -247,7 +248,7 @@ export var Composer = /*#__PURE__*/React.forwardRef(function (props, ref) {
     className: "Composer-inputWrap"
   }, /*#__PURE__*/React.createElement(ComposerInput, _extends({
     invisible: !isInputText
-  }, inputProps)), !isInputText && /*#__PURE__*/React.createElement(Recorder, recorder)), !text && rightAction && /*#__PURE__*/React.createElement(Action, rightAction), hasToolbar && /*#__PURE__*/React.createElement(Action, {
+  }, inputProps)), !isInputText && /*#__PURE__*/React.createElement(Recorder, recorder)), !text && rightAction && /*#__PURE__*/React.createElement(Action, rightAction), hasToolbar && !disabled && /*#__PURE__*/React.createElement(Action, {
     className: clsx('Composer-toggleBtn', {
       active: isAccessoryOpen
     }),
