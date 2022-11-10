@@ -40,6 +40,13 @@
   font-size: @quick-reply-font-size;
   transition: 0.15s ease-in-out;
 
+  // disabled state
+  &[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    color: var(--gray-2);
+  }
+
   &.new::after {
     content: '';
     position: absolute;
