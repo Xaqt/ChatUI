@@ -21,6 +21,7 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<InputRef>, 'o
   multiline?: boolean;
   autoSize?: boolean;
   onChange?: (value: string, event: React.ChangeEvent<InputRef>) => void;
+  isDisabled?: boolean;
 }
 
 export const Input = React.forwardRef<InputRef, InputProps>((props, ref) => {
@@ -38,6 +39,7 @@ export const Input = React.forwardRef<InputRef, InputProps>((props, ref) => {
     multiline,
     autoSize,
     onChange,
+    isDisabled,
     ...other
   } = props;
 
@@ -129,6 +131,7 @@ export const Input = React.forwardRef<InputRef, InputProps>((props, ref) => {
       ref={inputRef}
       rows={rows}
       onChange={handleChange}
+      disabled={isDisabled}
       {...other}
     />
   );

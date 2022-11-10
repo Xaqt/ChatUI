@@ -33,6 +33,7 @@ export type ComposerProps = {
   onToolbarClick?: (item: ToolbarItemProps, event: React.MouseEvent) => void;
   onAccessoryToggle?: (isAccessoryOpen: boolean) => void;
   rightAction?: IconButtonProps;
+  isDisabled?: boolean;
 };
 
 export interface ComposerHandle {
@@ -57,6 +58,7 @@ export const Composer = React.forwardRef<ComposerHandle, ComposerProps>((props, 
     onToolbarClick,
     rightAction,
     inputOptions,
+    isDisabled,
   } = props;
 
   const [text, setText] = useState(initialText);
@@ -236,6 +238,7 @@ export const Composer = React.forwardRef<ComposerHandle, ComposerProps>((props, 
     onKeyDown: handleInputKeyDown,
     onChange: handleTextChange,
     onImageSend,
+    isDisabled,
   };
 
   if (isWide) {

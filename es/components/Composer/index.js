@@ -39,7 +39,8 @@ export var Composer = /*#__PURE__*/React.forwardRef(function (props, ref) {
       toolbar = _props$toolbar === void 0 ? [] : _props$toolbar,
       onToolbarClick = props.onToolbarClick,
       rightAction = props.rightAction,
-      inputOptions = props.inputOptions;
+      inputOptions = props.inputOptions,
+      isDisabled = props.isDisabled;
 
   var _useState = useState(initialText),
       _useState2 = _slicedToArray(_useState, 2),
@@ -205,7 +206,8 @@ export var Composer = /*#__PURE__*/React.forwardRef(function (props, ref) {
     onBlur: handleInputBlur,
     onKeyDown: handleInputKeyDown,
     onChange: handleTextChange,
-    onImageSend: onImageSend
+    onImageSend: onImageSend,
+    isDisabled: isDisabled
   });
 
   if (isWide) {

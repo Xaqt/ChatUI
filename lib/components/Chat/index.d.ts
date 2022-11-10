@@ -7,6 +7,7 @@ export declare type ChatProps = Omit<ComposerProps, 'onFocus' | 'onChange' | 'on
     /**
      * 宽版模式断点
      */
+    isDisabled?: boolean;
     /**
      * 当前语言
      */
@@ -121,6 +122,7 @@ export declare const Chat: React.ForwardRefExoticComponent<Omit<ComposerProps, "
     /**
      * 宽版模式断点
      */
+    isDisabled?: boolean | undefined;
     /**
      * 当前语言
      */

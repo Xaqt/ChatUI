@@ -22,6 +22,7 @@ export declare type ComposerProps = {
     onToolbarClick?: (item: ToolbarItemProps, event: React.MouseEvent) => void;
     onAccessoryToggle?: (isAccessoryOpen: boolean) => void;
     rightAction?: IconButtonProps;
+    isDisabled?: boolean;
 };
 export interface ComposerHandle {
     setText: (text: string) => void;

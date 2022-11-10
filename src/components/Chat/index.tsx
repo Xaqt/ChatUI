@@ -16,6 +16,7 @@ export type ChatProps = Omit<ComposerProps, 'onFocus' | 'onChange' | 'onBlur'> &
      * 宽版模式断点
      */
     // wideBreakpoint?: string;
+    isDisabled?: boolean;
     /**
      * 当前语言
      */
@@ -182,6 +183,7 @@ export const Chat = React.forwardRef<HTMLDivElement, ChatProps>((props, ref) => 
     onToolbarClick,
     onAccessoryToggle,
     rightAction,
+    isDisabled,
     Composer = DComposer,
   } = props;
 
@@ -245,6 +247,7 @@ export const Chat = React.forwardRef<HTMLDivElement, ChatProps>((props, ref) => 
             onSend={onSend}
             onImageSend={onImageSend}
             rightAction={rightAction}
+            isDisabled={isDisabled}
           />
         </div>
       </div>

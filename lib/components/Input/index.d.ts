@@ -11,5 +11,6 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<InputRef>, 'o
     multiline?: boolean;
     autoSize?: boolean;
     onChange?: (value: string, event: React.ChangeEvent<InputRef>) => void;
+    isDisabled?: boolean;
 }
 export declare const Input: React.ForwardRefExoticComponent<InputProps & React.RefAttributes<InputRef>>;

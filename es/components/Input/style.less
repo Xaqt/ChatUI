@@ -26,8 +26,15 @@
   background: @input-bg;
   resize: @input-resize;
   -webkit-tap-highlight-color: transparent;
-  transition: .2s ease-in-out;
+  transition: 0.2s ease-in-out;
   -webkit-appearance: none;
+
+  // disabled state
+  &[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    color: var(--gray-2);
+  }
 
   &:focus {
     outline: none;
