@@ -17,7 +17,7 @@ export const SendButton = ({ disabled, onClick, buttonColor }: SendButtonProps) 
         disabled={disabled}
         onMouseDown={onClick}
         backgroundColor={buttonColor}
-        color="primary"
+        color="white"
       >
         {trans('send')}
       </Button>

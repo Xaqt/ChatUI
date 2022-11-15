@@ -16,6 +16,6 @@ export var SendButton = function SendButton(_ref) {
     disabled: disabled,
     onMouseDown: onClick,
     backgroundColor: buttonColor,
-    color: "primary"
+    color: "white"
   }, trans('send')));
 };
