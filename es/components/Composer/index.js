@@ -40,7 +40,8 @@ export var Composer = /*#__PURE__*/React.forwardRef(function (props, ref) {
       onToolbarClick = props.onToolbarClick,
       rightAction = props.rightAction,
       inputOptions = props.inputOptions,
-      isDisabled = props.isDisabled;
+      isDisabled = props.isDisabled,
+      buttonColor = props.buttonColor;
 
   var _useState = useState(initialText),
       _useState2 = _slicedToArray(_useState, 2),
@@ -257,7 +258,8 @@ export var Composer = /*#__PURE__*/React.forwardRef(function (props, ref) {
     "aria-label": isAccessoryOpen ? '关闭工具栏' : '展开工具栏'
   }), text && /*#__PURE__*/React.createElement(SendButton, {
     onClick: handleSendBtnClick,
-    disabled: false
+    disabled: false,
+    buttonColor: buttonColor
   })), isAccessoryOpen && /*#__PURE__*/React.createElement(AccessoryWrap, {
     onClickOutside: handleAccessoryBlur
   }, accessoryContent || /*#__PURE__*/React.createElement(Toolbar, {

@@ -23,6 +23,7 @@ export declare type ComposerProps = {
     onAccessoryToggle?: (isAccessoryOpen: boolean) => void;
     rightAction?: IconButtonProps;
     isDisabled?: boolean;
+    buttonColor?: string;
 };
 export interface ComposerHandle {
     setText: (text: string) => void;

@@ -3,7 +3,8 @@ import { Button } from '../Button';
 import { useLocale } from '../LocaleProvider';
 export var SendButton = function SendButton(_ref) {
   var disabled = _ref.disabled,
-      onClick = _ref.onClick;
+      onClick = _ref.onClick,
+      buttonColor = _ref.buttonColor;
 
   var _useLocale = useLocale('Composer'),
       trans = _useLocale.trans;
@@ -14,6 +15,6 @@ export var SendButton = function SendButton(_ref) {
     className: "Composer-sendBtn",
     disabled: disabled,
     onMouseDown: onClick,
-    color: "primary"
+    color: buttonColor || 'primary'
   }, trans('send')));
 };

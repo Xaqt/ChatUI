@@ -34,6 +34,7 @@ export type ComposerProps = {
   onAccessoryToggle?: (isAccessoryOpen: boolean) => void;
   rightAction?: IconButtonProps;
   isDisabled?: boolean;
+  buttonColor?: string;
 };
 
 export interface ComposerHandle {
@@ -59,6 +60,7 @@ export const Composer = React.forwardRef<ComposerHandle, ComposerProps>((props, 
     rightAction,
     inputOptions,
     isDisabled,
+    buttonColor,
   } = props;
 
   const [text, setText] = useState(initialText);
@@ -293,7 +295,9 @@ export const Composer = React.forwardRef<ComposerHandle, ComposerProps>((props, 
             aria-label={isAccessoryOpen ? '关闭工具栏' : '展开工具栏'}
           />
         )}
-        {text && <SendButton onClick={handleSendBtnClick} disabled={false} />}
+        {text && (
+          <SendButton onClick={handleSendBtnClick} disabled={false} buttonColor={buttonColor} />
+        )}
       </div>
       {isAccessoryOpen && (
         <AccessoryWrap onClickOutside={handleAccessoryBlur}>

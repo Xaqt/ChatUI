@@ -8,6 +8,7 @@ export declare type ChatProps = Omit<ComposerProps, 'onFocus' | 'onChange' | 'on
      * 宽版模式断点
      */
     isDisabled?: boolean;
+    buttonColor?: string;
     /**
      * 当前语言
      */
@@ -123,6 +124,7 @@ export declare const Chat: React.ForwardRefExoticComponent<Omit<ComposerProps, "
      * 宽版模式断点
      */
     isDisabled?: boolean | undefined;
+    buttonColor?: string | undefined;
     /**
      * 当前语言
      */
