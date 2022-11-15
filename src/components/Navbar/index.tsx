@@ -34,7 +34,7 @@ export const Navbar: React.FC<NavbarProps> = (props) => {
     <>
       <header className={clsx('Navbar', className)} style={{ backgroundColor: bgColor }}>
         <div className="Navbar-left">
-          {leftContent && <IconButton size="lg" {...leftContent} />}
+          {leftContent && <IconButton size="lg" {...leftContent} color={textColor} />}
         </div>
         <div className="Navbar-main">
           {logo && <img className="Navbar-logo" src={logo} alt={title} />}

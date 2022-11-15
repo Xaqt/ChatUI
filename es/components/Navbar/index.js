@@ -24,7 +24,9 @@ export var Navbar = function Navbar(props) {
     className: "Navbar-left"
   }, leftContent && /*#__PURE__*/React.createElement(IconButton, _extends({
     size: "lg"
-  }, leftContent))), /*#__PURE__*/React.createElement("div", {
+  }, leftContent, {
+    color: textColor
+  }))), /*#__PURE__*/React.createElement("div", {
     className: "Navbar-main"
   }, logo && /*#__PURE__*/React.createElement("img", {
     className: "Navbar-logo",
