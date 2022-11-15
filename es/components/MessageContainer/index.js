@@ -186,7 +186,7 @@ export var MessageContainer = /*#__PURE__*/React.forwardRef(function (props, ref
     onScroll: handleScroll,
     loadMoreText: loadMoreText,
     ref: scrollerRef
-  }, /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: "MessageList",
     style: {
       position: 'relative'
@@ -196,17 +196,7 @@ export var MessageContainer = /*#__PURE__*/React.forwardRef(function (props, ref
       renderMessageContent: renderMessageContent,
       key: msg._id
     }));
-  })), /*#__PURE__*/React.createElement("a", {
-    href: "#",
-    style: {
-      position: 'absolute',
-      bottom: 0,
-      margin: 0,
-      left: '50%',
-      translate: '-50%',
-      textDecoration: 'none'
-    }
-  }, "Give feedback"))), showBackBottom && /*#__PURE__*/React.createElement(BackBottom, {
+  }))), showBackBottom && /*#__PURE__*/React.createElement(BackBottom, {
     count: newCount,
     onClick: handleBackBottomClick,
     onDidMount: onBackBottomShow
