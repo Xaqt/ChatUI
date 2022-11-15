@@ -15,6 +15,7 @@ export var SendButton = function SendButton(_ref) {
     className: "Composer-sendBtn",
     disabled: disabled,
     onMouseDown: onClick,
-    color: buttonColor || 'primary'
+    backgroundColor: buttonColor,
+    color: "primary"
   }, trans('send')));
 };

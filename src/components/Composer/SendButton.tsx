@@ -16,7 +16,8 @@ export const SendButton = ({ disabled, onClick, buttonColor }: SendButtonProps) 
         className="Composer-sendBtn"
         disabled={disabled}
         onMouseDown={onClick}
-        color={buttonColor || 'primary'}
+        backgroundColor={buttonColor}
+        color="primary"
       >
         {trans('send')}
       </Button>
