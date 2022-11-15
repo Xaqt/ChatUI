@@ -1,7 +1,7 @@
 import _extends from "@babel/runtime/helpers/esm/extends";
 import _slicedToArray from "@babel/runtime/helpers/esm/slicedToArray";
 import _objectWithoutProperties from "@babel/runtime/helpers/esm/objectWithoutProperties";
-var _excluded = ["inputRef", "invisible", "onImageSend"];
+var _excluded = ["inputRef", "invisible", "onImageSend", "isDisabled"];
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import clsx from 'clsx';
 import { Input } from '../Input';
@@ -14,6 +14,7 @@ export var ComposerInput = function ComposerInput(_ref) {
   var inputRef = _ref.inputRef,
       invisible = _ref.invisible,
       onImageSend = _ref.onImageSend,
+      isDisabled = _ref.isDisabled,
       rest = _objectWithoutProperties(_ref, _excluded);
 
   var _useState = useState(null),
@@ -45,7 +46,7 @@ export var ComposerInput = function ComposerInput(_ref) {
       'S--invisible': invisible
     }),
     ref: wrapRef
-  }, /*#__PURE__*/React.createElement(Input, _extends({
+  }, !isDisabled && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Input, _extends({
     className: "Composer-input",
     rows: 1,
     autoSize: true,
@@ -56,5 +57,5 @@ export var ComposerInput = function ComposerInput(_ref) {
     file: pastedImage,
     onCancel: handleImageCancel,
     onSend: handleImageSend
-  }));
+  })));
 };

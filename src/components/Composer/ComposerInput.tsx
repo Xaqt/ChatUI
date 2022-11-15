@@ -12,12 +12,14 @@ interface ComposerInputProps extends InputProps {
   invisible: boolean;
   inputRef: React.MutableRefObject<HTMLTextAreaElement>;
   onImageSend?: (file: File) => Promise<any>;
+  isDisabled?: boolean;
 }
 
 export const ComposerInput = ({
   inputRef,
   invisible,
   onImageSend,
+  isDisabled,
   ...rest
 }: ComposerInputProps) => {
   const [pastedImage, setPastedImage] = useState<File | null>(null);
@@ -47,17 +49,21 @@ export const ComposerInput = ({
 
   return (
     <div className={clsx({ 'S--invisible': invisible })} ref={wrapRef}>
-      <Input
-        className="Composer-input"
-        rows={1}
-        autoSize
-        enterKeyHint="send"
-        onPaste={onImageSend ? handlePaste : undefined}
-        ref={inputRef}
-        {...rest}
-      />
-      {pastedImage && (
-        <SendConfirm file={pastedImage} onCancel={handleImageCancel} onSend={handleImageSend} />
+      {!isDisabled && (
+        <>
+          <Input
+            className="Composer-input"
+            rows={1}
+            autoSize
+            enterKeyHint="send"
+            onPaste={onImageSend ? handlePaste : undefined}
+            ref={inputRef}
+            {...rest}
+          />
+          {pastedImage && (
+            <SendConfirm file={pastedImage} onCancel={handleImageCancel} onSend={handleImageSend} />
+          )}
+        </>
       )}
     </div>
   );
