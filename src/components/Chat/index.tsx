@@ -9,6 +9,7 @@ import {
 import { QuickReplies, QuickReplyItemProps } from '../QuickReplies';
 import { Composer as DComposer, ComposerProps, ComposerHandle } from '../Composer';
 import isSafari from '../../utils/isSafari';
+import DownloadTranscript from '../DownloadTranscript';
 
 export type ChatProps = Omit<ComposerProps, 'onFocus' | 'onChange' | 'onBlur'> &
   MessageContainerProps & {
@@ -225,12 +226,15 @@ export const Chat = React.forwardRef<HTMLDivElement, ChatProps>((props, ref) => 
           {renderQuickReplies ? (
             renderQuickReplies()
           ) : (
-            <QuickReplies
-              items={quickReplies}
-              visible={quickRepliesVisible}
-              onClick={onQuickReplyClick}
-              onScroll={onQuickReplyScroll}
-            />
+            <>
+              <QuickReplies
+                items={quickReplies}
+                visible={quickRepliesVisible}
+                onClick={onQuickReplyClick}
+                onScroll={onQuickReplyScroll}
+              />
+              <DownloadTranscript />
+            </>
           )}
           <Composer
             wideBreakpoint={wideBreakpoint}
