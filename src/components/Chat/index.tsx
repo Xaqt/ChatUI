@@ -227,12 +227,12 @@ export const Chat = React.forwardRef<HTMLDivElement, ChatProps>((props, ref) => 
             renderQuickReplies()
           ) : (
             <>
-              <QuickReplies
+              {/* <QuickReplies
                 items={quickReplies}
                 visible={quickRepliesVisible}
                 onClick={onQuickReplyClick}
                 onScroll={onQuickReplyScroll}
-              />
+              /> */}
               <DownloadTranscript />
             </>
           )}
