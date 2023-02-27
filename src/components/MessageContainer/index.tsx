@@ -45,7 +45,7 @@ export const MessageContainer = React.forwardRef<MessageContainerHandle, Message
       onBackBottomClick,
       style,
     } = props;
-
+    console.log('MessageContainer!');
     const [showBackBottom, setShowBackBottom] = useState(false);
     const [newCount, setNewCount] = useState(0);
     const showBackBottomtRef = useRef(showBackBottom);
