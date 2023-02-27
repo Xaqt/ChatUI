@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import useForwardRef from '../../hooks/useForwardRef';
-import getToBottom from '../../utils/getToBottom';
+// import getToBottom from '../../utils/getToBottom';
 
 export interface InfiniteScrollProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
@@ -23,11 +23,11 @@ export const InfiniteScroll = React.forwardRef<HTMLDivElement, InfiniteScrollPro
       const el = wrapperRef.current;
       if (!el) return;
 
-      const nearBottom = getToBottom(el) <= distance;
+      // const nearBottom = getToBottom(el) <= distance;
 
-      if (nearBottom) {
-        onLoadMore();
-      }
+      // if (nearBottom) {
+      //   onLoadMore();
+      // }
     }
 
     return (

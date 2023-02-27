@@ -3,8 +3,8 @@ import _objectWithoutProperties from "@babel/runtime/helpers/esm/objectWithoutPr
 var _excluded = ["className", "disabled", "distance", "children", "onLoadMore", "onScroll"];
 import React from 'react';
 import clsx from 'clsx';
-import useForwardRef from '../../hooks/useForwardRef';
-import getToBottom from '../../utils/getToBottom';
+import useForwardRef from '../../hooks/useForwardRef'; // import getToBottom from '../../utils/getToBottom';
+
 export var InfiniteScroll = /*#__PURE__*/React.forwardRef(function (props, ref) {
   var className = props.className,
       disabled = props.disabled,
@@ -23,12 +23,10 @@ export var InfiniteScroll = /*#__PURE__*/React.forwardRef(function (props, ref) 
     }
 
     var el = wrapperRef.current;
-    if (!el) return;
-    var nearBottom = getToBottom(el) <= distance;
-
-    if (nearBottom) {
-      onLoadMore();
-    }
+    if (!el) return; // const nearBottom = getToBottom(el) <= distance;
+    // if (nearBottom) {
+    //   onLoadMore();
+    // }
   }
 
   return /*#__PURE__*/React.createElement("div", _extends({
