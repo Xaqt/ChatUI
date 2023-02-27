@@ -42,8 +42,7 @@ export var MessageContainer = /*#__PURE__*/React.forwardRef(function (props, ref
   var showBackBottomtRef = useRef(showBackBottom);
   var newCountRef = useRef(newCount);
   var messagesRef = useRef(null);
-  var scrollerRef = useRef(null);
-  var lastMessage = messages[messages.length - 1];
+  var scrollerRef = useRef(null); // const lastMessage = messages[messages.length - 1];
 
   var clearBackBottom = function clearBackBottom() {
     setNewCount(0);
@@ -102,30 +101,24 @@ export var MessageContainer = /*#__PURE__*/React.forwardRef(function (props, ref
   }, [newCount]);
   useEffect(function () {
     showBackBottomtRef.current = showBackBottom;
-  }, [showBackBottom]);
-  useEffect(function () {
-    var scroller = scrollerRef.current;
-    var wrapper = scroller && scroller.wrapperRef.current;
+  }, [showBackBottom]); // useEffect(() => {
+  //   const scroller = scrollerRef.current;
+  //   const wrapper = scroller && scroller.wrapperRef.current;
+  //   if (!wrapper || !lastMessage || lastMessage.position === 'pop') {
+  //     return;
+  //   }
+  //   if (lastMessage.position === 'right') {
+  //     // 自己发的消息，强制滚动到底部
+  //     // scrollToEnd({ force: true });
+  //   } else if (isNearBottom(wrapper, 2)) {
+  //     const animated = !!wrapper.scrollTop;
+  //     scrollToEnd({ animated, force: true });
+  //   } else {
+  //     setNewCount(c => c + 1);
+  //     setShowBackBottom(true);
+  //   }
+  // }, [lastMessage, scrollToEnd]);
 
-    if (!wrapper || !lastMessage || lastMessage.position === 'pop') {
-      return;
-    }
-
-    if (lastMessage.position === 'right') {// 自己发的消息，强制滚动到底部
-      // scrollToEnd({ force: true });
-    } else if (isNearBottom(wrapper, 2)) {
-      var animated = !!wrapper.scrollTop;
-      scrollToEnd({
-        animated: animated,
-        force: true
-      });
-    } else {
-      setNewCount(function (c) {
-        return c + 1;
-      });
-      setShowBackBottom(true);
-    }
-  }, [lastMessage, scrollToEnd]);
   useEffect(function () {
     var wrapper = messagesRef.current;
     var needBlur = false;

@@ -51,7 +51,7 @@ export const MessageContainer = React.forwardRef<MessageContainerHandle, Message
     const newCountRef = useRef(newCount);
     const messagesRef = useRef<HTMLDivElement>(null);
     const scrollerRef = useRef<PullToRefreshHandle>(null);
-    const lastMessage = messages[messages.length - 1];
+    // const lastMessage = messages[messages.length - 1];
 
     const clearBackBottom = () => {
       setNewCount(0);
@@ -115,25 +115,25 @@ export const MessageContainer = React.forwardRef<MessageContainerHandle, Message
       showBackBottomtRef.current = showBackBottom;
     }, [showBackBottom]);
 
-    useEffect(() => {
-      const scroller = scrollerRef.current;
-      const wrapper = scroller && scroller.wrapperRef.current;
+    // useEffect(() => {
+    //   const scroller = scrollerRef.current;
+    //   const wrapper = scroller && scroller.wrapperRef.current;
 
-      if (!wrapper || !lastMessage || lastMessage.position === 'pop') {
-        return;
-      }
+    //   if (!wrapper || !lastMessage || lastMessage.position === 'pop') {
+    //     return;
+    //   }
 
-      if (lastMessage.position === 'right') {
-        // 自己发的消息，强制滚动到底部
-        // scrollToEnd({ force: true });
-      } else if (isNearBottom(wrapper, 2)) {
-        const animated = !!wrapper.scrollTop;
-        scrollToEnd({ animated, force: true });
-      } else {
-        setNewCount(c => c + 1);
-        setShowBackBottom(true);
-      }
-    }, [lastMessage, scrollToEnd]);
+    //   if (lastMessage.position === 'right') {
+    //     // 自己发的消息，强制滚动到底部
+    //     // scrollToEnd({ force: true });
+    //   } else if (isNearBottom(wrapper, 2)) {
+    //     const animated = !!wrapper.scrollTop;
+    //     scrollToEnd({ animated, force: true });
+    //   } else {
+    //     setNewCount(c => c + 1);
+    //     setShowBackBottom(true);
+    //   }
+    // }, [lastMessage, scrollToEnd]);
 
     useEffect(() => {
       const wrapper = messagesRef.current!;
