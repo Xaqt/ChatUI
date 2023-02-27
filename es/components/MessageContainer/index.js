@@ -63,12 +63,9 @@ export var MessageContainer = /*#__PURE__*/React.forwardRef(function (props, ref
   }, []);
 
   var handleBackBottomClick = function handleBackBottomClick() {
-    scrollToEnd({
-      animated: false,
-      force: true
-    }); // setNewCount(0);
+    // scrollToEnd({ animated: false, force: true });
+    // setNewCount(0);
     // setShowBackBottom(false);
-
     if (onBackBottomClick) {
       onBackBottomClick();
     }
@@ -114,11 +111,8 @@ export var MessageContainer = /*#__PURE__*/React.forwardRef(function (props, ref
       return;
     }
 
-    if (lastMessage.position === 'right') {
-      // 自己发的消息，强制滚动到底部
-      scrollToEnd({
-        force: true
-      });
+    if (lastMessage.position === 'right') {// 自己发的消息，强制滚动到底部
+      // scrollToEnd({ force: true });
     } else if (isNearBottom(wrapper, 2)) {
       var animated = !!wrapper.scrollTop;
       scrollToEnd({
