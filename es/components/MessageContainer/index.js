@@ -2,21 +2,23 @@ import _extends from "@babel/runtime/helpers/esm/extends";
 import _slicedToArray from "@babel/runtime/helpers/esm/slicedToArray";
 
 /* eslint-disable no-underscore-dangle */
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useImperativeHandle } from 'react';
 import { PullToRefresh } from '../PullToRefresh';
 import { Message } from '../Message';
 import { BackBottom } from '../BackBottom';
-import canUse from '../../utils/canUse'; // import throttle from '../../utils/throttle';
-// import getToBottom from '../../utils/getToBottom';
-
+import canUse from '../../utils/canUse';
+import throttle from '../../utils/throttle';
+import getToBottom from '../../utils/getToBottom';
 var listenerOpts = canUse('passiveListener') ? {
   passive: true
 } : false;
-// function isNearBottom(el: HTMLElement, n: number) {
-//   const offsetHeight = Math.max(el.offsetHeight, 600);
-//   return getToBottom(el) < offsetHeight * n;
-// }
-export var MessageContainer = /*#__PURE__*/React.forwardRef(function (props) {
+
+function isNearBottom(el, n) {
+  var offsetHeight = Math.max(el.offsetHeight, 200);
+  return getToBottom(el) < offsetHeight * n;
+}
+
+export var MessageContainer = /*#__PURE__*/React.forwardRef(function (props, ref) {
   var messages = props.messages,
       loadMoreText = props.loadMoreText,
       onRefresh = props.onRefresh,
@@ -41,20 +43,24 @@ export var MessageContainer = /*#__PURE__*/React.forwardRef(function (props) {
   var newCountRef = useRef(newCount);
   var messagesRef = useRef(null);
   var scrollerRef = useRef(null);
-  var lastMessage = messages[messages.length - 1]; // const clearBackBottom = () => {
-  //   setNewCount(0);
-  //   setShowBackBottom(false);
-  // };
-  // const scrollToEnd = useCallback((opts?: ScrollToEndOptions) => {
-  //   if (scrollerRef.current) {
-  //     if (!showBackBottomtRef.current || (opts && opts.force)) {
-  //       scrollerRef.current.scrollToEnd(opts);
-  //       if (showBackBottomtRef.current) {
-  //         clearBackBottom();
-  //       }
-  //     }
-  //   }
-  // }, []);
+  var lastMessage = messages[messages.length - 1];
+
+  var clearBackBottom = function clearBackBottom() {
+    setNewCount(0);
+    setShowBackBottom(false);
+  };
+
+  var scrollToEnd = useCallback(function (opts) {
+    if (scrollerRef.current) {
+      if (!showBackBottomtRef.current || opts && opts.force) {
+        scrollerRef.current.scrollToEnd(opts);
+
+        if (showBackBottomtRef.current) {
+          clearBackBottom();
+        }
+      }
+    }
+  }, []);
 
   var handleBackBottomClick = function handleBackBottomClick() {
     // scrollToEnd({ animated: false, force: true });
@@ -63,29 +69,29 @@ export var MessageContainer = /*#__PURE__*/React.forwardRef(function (props) {
     if (onBackBottomClick) {
       onBackBottomClick();
     }
-  }; // const checkShowBottomRef = useRef(
-  //   throttle((el: HTMLElement) => {
-  //     if (isNearBottom(el, 3)) {
-  //       if (newCountRef.current) {
-  //         // 如果有新消息，离底部0.5屏-隐藏提示
-  //         if (isNearBottom(el, 0.5)) {
-  //           // setNewCount(0);
-  //           // setShowBackBottom(false);
-  //           clearBackBottom();
-  //         }
-  //       } else {
-  //         setShowBackBottom(false);
-  //       }
-  //     } else {
-  //       // 3屏+显示回到底部
-  //       setShowBackBottom(true);
-  //     }
-  //   }),
-  // );
+  };
 
+  var checkShowBottomRef = useRef(throttle(function (el) {
+    if (isNearBottom(el, 3)) {
+      if (newCountRef.current) {
+        // 如果有新消息，离底部0.5屏-隐藏提示
+        if (isNearBottom(el, 0.5)) {
+          // setNewCount(0);
+          // setShowBackBottom(false);
+          clearBackBottom();
+        }
+      } else {
+        setShowBackBottom(false);
+      }
+    } else {
+      // 3屏+显示回到底部
+      setShowBackBottom(true);
+    }
+  }));
 
   var handleScroll = function handleScroll(e) {
-    // checkShowBottomRef.current(e.target);
+    checkShowBottomRef.current(e.target);
+
     if (onScroll) {
       onScroll(e);
     }
@@ -107,16 +113,19 @@ export var MessageContainer = /*#__PURE__*/React.forwardRef(function (props) {
 
     if (lastMessage.position === 'right') {// 自己发的消息，强制滚动到底部
       // scrollToEnd({ force: true });
-      // } else if (isNearBottom(wrapper, 2)) {
-      //   const animated = !!wrapper.scrollTop;
-      //   scrollToEnd({ animated, force: true });
+    } else if (isNearBottom(wrapper, 2)) {
+      var animated = !!wrapper.scrollTop;
+      scrollToEnd({
+        animated: animated,
+        force: true
+      });
     } else {
       setNewCount(function (c) {
         return c + 1;
       });
       setShowBackBottom(true);
     }
-  }, [lastMessage]);
+  }, [lastMessage, scrollToEnd]);
   useEffect(function () {
     var wrapper = messagesRef.current;
     var needBlur = false;
@@ -154,8 +163,13 @@ export var MessageContainer = /*#__PURE__*/React.forwardRef(function (props) {
       wrapper.removeEventListener('touchend', reset);
       wrapper.removeEventListener('touchcancel', reset);
     };
-  }, []); // useImperativeHandle(ref, () => ({ ref: messagesRef, scrollToEnd }), [scrollToEnd]);
-
+  }, []);
+  useImperativeHandle(ref, function () {
+    return {
+      ref: messagesRef,
+      scrollToEnd: scrollToEnd
+    };
+  }, [scrollToEnd]);
   return /*#__PURE__*/React.createElement("div", {
     className: "MessageContainer",
     ref: messagesRef,
