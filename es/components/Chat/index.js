@@ -88,12 +88,12 @@ export var Chat = /*#__PURE__*/React.forwardRef(function (props, ref) {
     style: messageContainerStyle
   }), /*#__PURE__*/React.createElement("div", {
     className: "ChatFooter"
-  }, renderQuickReplies ? renderQuickReplies() : /*#__PURE__*/React.createElement(QuickReplies, {
+  }, renderQuickReplies ? renderQuickReplies() : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(QuickReplies, {
     items: quickReplies,
     visible: quickRepliesVisible,
     onClick: onQuickReplyClick,
     onScroll: onQuickReplyScroll
-  }), /*#__PURE__*/React.createElement(Composer, {
+  })), /*#__PURE__*/React.createElement(Composer, {
     wideBreakpoint: wideBreakpoint,
     ref: composerRef,
     inputType: inputType,

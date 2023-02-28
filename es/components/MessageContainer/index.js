@@ -14,7 +14,7 @@ var listenerOpts = canUse('passiveListener') ? {
 } : false;
 
 function isNearBottom(el, n) {
-  var offsetHeight = Math.max(el.offsetHeight, 600);
+  var offsetHeight = Math.max(el.offsetHeight, 50);
   return getToBottom(el) < offsetHeight * n;
 }
 
@@ -63,12 +63,9 @@ export var MessageContainer = /*#__PURE__*/React.forwardRef(function (props, ref
   }, []);
 
   var handleBackBottomClick = function handleBackBottomClick() {
-    scrollToEnd({
-      animated: false,
-      force: true
-    }); // setNewCount(0);
+    // scrollToEnd({ animated: false, force: true });
+    // setNewCount(0);
     // setShowBackBottom(false);
-
     if (onBackBottomClick) {
       onBackBottomClick();
     }
@@ -119,7 +116,7 @@ export var MessageContainer = /*#__PURE__*/React.forwardRef(function (props, ref
       scrollToEnd({
         force: true
       });
-    } else if (isNearBottom(wrapper, 2)) {
+    } else if (isNearBottom(wrapper, 1)) {
       var animated = !!wrapper.scrollTop;
       scrollToEnd({
         animated: animated,

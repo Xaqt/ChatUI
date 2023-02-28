@@ -27,7 +27,7 @@ export interface MessageContainerHandle {
 }
 
 function isNearBottom(el: HTMLElement, n: number) {
-  const offsetHeight = Math.max(el.offsetHeight, 600);
+  const offsetHeight = Math.max(el.offsetHeight, 50);
   return getToBottom(el) < offsetHeight * n;
 }
 
@@ -70,7 +70,7 @@ export const MessageContainer = React.forwardRef<MessageContainerHandle, Message
     }, []);
 
     const handleBackBottomClick = () => {
-      scrollToEnd({ animated: false, force: true });
+      // scrollToEnd({ animated: false, force: true });
       // setNewCount(0);
       // setShowBackBottom(false);
 
@@ -126,11 +126,11 @@ export const MessageContainer = React.forwardRef<MessageContainerHandle, Message
       if (lastMessage.position === 'right') {
         // 自己发的消息，强制滚动到底部
         scrollToEnd({ force: true });
-      } else if (isNearBottom(wrapper, 2)) {
+      } else if (isNearBottom(wrapper, 1)) {
         const animated = !!wrapper.scrollTop;
         scrollToEnd({ animated, force: true });
       } else {
-        setNewCount((c) => c + 1);
+        setNewCount(c => c + 1);
         setShowBackBottom(true);
       }
     }, [lastMessage, scrollToEnd]);
@@ -186,7 +186,7 @@ export const MessageContainer = React.forwardRef<MessageContainerHandle, Message
           ref={scrollerRef}
         >
           <div className="MessageList" style={{ position: 'relative' }}>
-            {messages.map((msg) => (
+            {messages.map(msg => (
               <Message {...msg} renderMessageContent={renderMessageContent} key={msg._id} />
             ))}
           </div>
